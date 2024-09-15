@@ -47,7 +47,7 @@ In the case of a successful setup, after _Push_ / _Pull request_ to the `main` b
 
 ```
 yc serverless function version create \
---runtime nodejs12 \
+--runtime nodejs18 \
 --entrypoint index.handler \
 --memory 128m \
 --execution-timeout 3s \
@@ -63,7 +63,7 @@ You can run `npm run build:zip` script to build and pack function into zip archi
 
 ### Exclude `devDependencies` from package.json
 
-If you don't want to deploy `package.json` with `devDependecies` (to avoid limits for installing dependencies), then you can use [jq](https://stedolan.github.io/jq/download/) to delete `devDependecies` property from `package.json`:
+If you don't want to deploy `package.json` with `devDependencies` (to avoid limits for installing dependencies), then you can use [jq](https://stedolan.github.io/jq/download/) to delete `devDependencies` property from `package.json`:
 
 `cat <<< $(jq 'del(.devDependencies)' package.json) > dist/package.json`
 
